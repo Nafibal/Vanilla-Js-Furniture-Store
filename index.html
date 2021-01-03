@@ -14,9 +14,7 @@
     />
   </head>
   <body>
-    <!-- ====== -->
     <!-- NAVBAR -->
-    <!-- ====== -->
     <nav class="navbar">
       <div class="nav-center">
         <!-- Nav Link -->
@@ -41,9 +39,7 @@
         </button>
       </div>
     </nav>
-    <!-- ====== -->
     <!-- SIDEBAR -->
-    <!-- ====== -->
     <div class="sidebar-overlay">
       <div class="sidebar">
         <button class="sidebar-close">
@@ -51,34 +47,79 @@
         </button>
         <ul class="sidebar-links">
           <li>
-            <a href="" class="sidebar-link">Home</a>
+            <a href="" class="sidebar-link">
+              <i class="fas fa-home fa-fw"></i>Home</a
+            >
           </li>
           <li>
-            <a href="" class="sidebar-link">Products</a>
+            <a href="" class="sidebar-link"
+              ><i class="fas fa-couch fa-fw"></i>Products</a
+            >
           </li>
           <li>
-            <a href="" class="sidebar-link"> About</a>
+            <a href="" class="sidebar-link">
+              <i class="fas fa-book fa-fw"></i>About</a
+            >
           </li>
         </ul>
       </div>
     </div>
-    <!-- ====== -->
     <!-- CART TOGGLE -->
-    <!-- ====== -->
     <div class="cart-overlay">
       <div class="cart">
-        <button class="cart-close"></button>
+        <button class="cart-close"><i class="fas fa-times"></i></button>
+        <!-- header -->
         <header>
-          <h3></h3>
+          <h3 class="text-slanted">your bag</h3>
         </header>
-        <div class="cart-item"></div>
-        <div class="cart-total"></div>
-        <button class="cart-checkout"></button>
+        <!-- cart items -->
+        <div class="cart-items">
+          <!-- single item -->
+          <div class="cart-item">
+            <img class="cart-item-img" src="./image/hero.jpg" alt="image" />
+            <div>
+              <h4 class="cart-item-name">Utopia Sofa</h4>
+              <p class="cart-item-price">$12.99</p>
+              <button class="cart-item-remove">remove</button>
+            </div>
+            <div>
+              <button class="cart-item-increase">
+                <i class="fas fa-chevron-up"></i>
+              </button>
+              <p class="cart-item-amount">1</p>
+              <button class="cart-item-decrease">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+          <!-- end of single item -->
+          <!-- single item -->
+          <div class="cart-item">
+            <img class="cart-item-img" src="./image/hero.jpg" alt="image" />
+            <div>
+              <h4 class="cart-item-name">utopia sofa</h4>
+              <p class="cart-item-price">$12.99</p>
+              <button class="cart-item-remove">remove</button>
+            </div>
+            <div>
+              <button class="cart-item-increase">
+                <i class="fas fa-chevron-up"></i>
+              </button>
+              <p class="cart-item-amount">1</p>
+              <button class="cart-item-decrease">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+          <!-- end of single item -->
+        </div>
+        <footer>
+          <h3 class="cart-total text-slanted">Total: $9.99</h3>
+          <button class="cart-checkout btn">checkout</button>
+        </footer>
       </div>
     </div>
-    <!-- ====== -->
     <!-- HERO -->
-    <!-- ====== -->
     <section class="hero">
       <div class="hero-container">
         <h1 class="text-slanted">rest, relax, releive</h1>
