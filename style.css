@@ -154,7 +154,25 @@ p {
   background-color: var(--clr-white);
   color: var(--clr-primary-5);
 }
-
+.section-loading {
+  text-align: center;
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-grey-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*
 =============== 
 NAVBAR
