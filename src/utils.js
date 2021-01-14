@@ -13,8 +13,15 @@ const getElement = (selected) => {
 
 const formatPrice = () => {};
 
-const getStorageItem = () => {};
-const setStorageItem = () => {};
+const getStorageItem = (key) => {
+  if (localStorage.getItem(key)) {
+    return JSON.parse(localStorage.getItem(key));
+  }
+  return [];
+};
+const setStorageItem = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
 
 export {
   allProductsUrl,
