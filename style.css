@@ -155,12 +155,10 @@ p {
   color: var(--clr-primary-5);
 }
 .section-loading {
+  display: flex;
+  align-items: center;
   text-align: center;
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  height: 3rem;
 }
 .page-loading {
   position: fixed;
