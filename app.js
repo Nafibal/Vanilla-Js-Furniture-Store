@@ -4,13 +4,19 @@ import "./src/cart/toggleCart.js";
 
 import fetchProducts from "./src/fetchProducts.js";
 import { setupStore, store } from "./src/store.js";
+import display from "./src/displayProducts.js";
+import { getElement } from "./src/utils.js";
 
 const init = async () => {
   const products = await fetchProducts().catch((err) => {
     console.log(err);
   });
   setupStore(products);
-  console.log(store);
+  const featured = store.filter((product) => {
+    return product.featured == true;
+  });
+  console.log(featured);
+  display(featured, getElement(".featured-center"));
 };
 
 window.addEventListener("DOMContentLoaded", init);
