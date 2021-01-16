@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
+    <title>Products</title>
     <!-- Links -->
     <link rel="stylesheet" href="style.css" />
     <link
@@ -122,25 +122,41 @@
     <!-- HERO -->
     <section class="page-hero">
       <div class="section-center">
-        <h3 class="page-hero-title">Home / About</h3>
+        <h3 class="page-hero-title">Home / Products</h3>
       </div>
     </section>
-    <section class="section section-about">
-      <div class="title">
-        <h2><span>/</span>About</h2>
+    <!-- SECTION PRODUCTS -->
+    <section class="products">
+      <!-- filters -->
+      <div class="filters">
+        <div class="filters-container">
+          <!-- search -->
+          <form action="" class="input-form">
+            <input type="text" class="search-input" placeholder="search..." />
+          </form>
+          <!-- categories -->
+          <h4>companies</h4>
+          <div class="companies">
+            <button class="company-btn">all</button>
+            <button class="company-btn">ikea</button>
+          </div>
+          <!-- price -->
+          <form class="price-form">
+            <input
+              type="range"
+              class="price-filter"
+              min="0"
+              value="50"
+              max="100"
+            />
+          </form>
+          <p class="price-value">value: $20</p>
+        </div>
       </div>
-      <p class="about-text">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
-        itaque tenetur saepe autem? Autem aspernatur, natus quae perspiciatis
-        est dolorum vitae illo voluptatibus soluta eligendi aliquid. Quod neque
-        voluptatibus provident deserunt suscipit, aspernatur, at temporibus
-        voluptate aliquid, saepe maiores. Laborum quidem consectetur nisi eaque
-        omnis animi dolores, vel debitis, necessitatibus libero cupiditate dicta
-        maxime soluta. Fugiat nobis ullam, error aperiam nihil, ad voluptatum
-        neque similique amet consequatur quae veniam hic.
-      </p>
+      <!-- products -->
+      <div class="products-container"></div>
     </section>
 
-    <script type="module" src="./src/page/about.js"></script>
+    <script type="module" src="./src/page/products.js"></script>
   </body>
 </html>
