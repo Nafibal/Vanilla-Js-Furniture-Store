@@ -5,7 +5,7 @@ import "../cart/toggleCart.js";
 // filter import
 import setupSearch from "../filter/search.js";
 import setupCompanies from "../filter/companies.js";
-// import setupPrice from "../filter/price.js"
+import setupPrice from "../filter/price.js";
 
 // specific import
 import { getElement } from "../utils.js";
@@ -18,3 +18,5 @@ display(store, getElement(".products-container"));
 setupSearch();
 // Companies Filter
 setupCompanies();
+// Price FIlter
+setupPrice();
