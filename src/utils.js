@@ -6,9 +6,7 @@ const singleProductUrl =
 const getElement = (selected) => {
   const element = document.querySelector(selected);
   if (element) return element;
-  throw new Error(
-    `Please check "${selection}" selector, no such element exist`
-  );
+  throw new Error(`Please check "${selected}" selector, no such element exist`);
 };
 
 const formatPrice = (price) => {
