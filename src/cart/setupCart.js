@@ -29,17 +29,22 @@ export const addToCart = (id) => {
     addToCartDOM(product);
   } else {
     // update values
+    const amount = increaseAmount(id);
+    const items = [...document.querySelectorAll(".cart-item-amount")];
+    const newAmount = items.find((item) => item.dataset.id === id);
+    newAmount.textContent = amount;
   }
   // add one to the item count
-  addCartItemCount();
+  displayCartItemCount();
   // display cart total
   displayCartItemTotal();
   // set cart in local storage
+  setStorageItem("cart", cart);
 
   openCart();
 };
 
-const addCartItemCount = () => {
+const displayCartItemCount = () => {
   const amount = cart.reduce((total, item) => {
     return (total += item.amount);
   }, 0);
@@ -53,8 +58,28 @@ const displayCartItemTotal = () => {
   cartTotalDOM.textContent = `${formatPrice(cartTotal)}`;
 };
 
+const displayCartDOM = () => {
+  cart.forEach((product) => {
+    addToCartDOM(product);
+  });
+};
+
+const increaseAmount = (id) => {
+  let newAmount;
+  cart = cart.map((item) => {
+    if (item.id === id) {
+      newAmount = item.amount + 1;
+      item = { ...item, amount: newAmount };
+    }
+    return item;
+  });
+  return newAmount;
+};
+
 const init = () => {
-  console.log(cart);
+  displayCartItemCount();
+  displayCartItemTotal();
+  displayCartDOM();
 };
 
 init();
