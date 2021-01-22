@@ -76,10 +76,34 @@ const increaseAmount = (id) => {
   return newAmount;
 };
 
+const removeItem = (id) => {
+  cart = cart.filter((item) => item.id !== id);
+};
+
+const setupCartFunctionality = () => {
+  cartItemContainerDOM.addEventListener("click", function (e) {
+    const element = e.target;
+    const parent = e.target.parentElement;
+    const id = element.dataset.id;
+    const parentId = parent.dataset.id;
+    // remove
+    removeItem(id);
+    parent.parentElement.remove();
+    // increase
+
+    // decrease
+
+    displayCartItemCount();
+    displayCartItemTotal();
+    setStorageItem("cart", cart);
+  });
+};
+
 const init = () => {
   displayCartItemCount();
   displayCartItemTotal();
   displayCartDOM();
+  setupCartFunctionality();
 };
 
 init();
