@@ -29,7 +29,7 @@ export const addToCart = (id) => {
     addToCartDOM(product);
   } else {
     // update values
-    const amount = increaseAmount(id);
+    const amount = editAmount(id);
     const items = [...document.querySelectorAll(".cart-item-amount")];
     const newAmount = items.find((item) => item.dataset.id === id);
     newAmount.textContent = amount;
@@ -64,11 +64,13 @@ const displayCartDOM = () => {
   });
 };
 
-const increaseAmount = (id) => {
+const editAmount = (id, condition) => {
   let newAmount;
   cart = cart.map((item) => {
     if (item.id === id) {
-      newAmount = item.amount + 1;
+      condition === "decrease"
+        ? (newAmount = item.amount - 1)
+        : (newAmount = item.amount + 1);
       item = { ...item, amount: newAmount };
     }
     return item;
@@ -93,10 +95,18 @@ const setupCartFunctionality = () => {
     }
     // increase
     if (parent.classList.contains("cart-item-increase")) {
-      const newAmount = increaseAmount(parentId);
+      const newAmount = editAmount(parentId);
       parent.nextElementSibling.textContent = newAmount;
     }
     // decrease
+    if (parent.classList.contains("cart-item-decrease")) {
+      const newAmount = editAmount(parentId, "decrease");
+      if (newAmount === 0) {
+        parent.parentElement.parentElement.remove();
+      } else {
+        parent.previousElementSibling.textContent = newAmount;
+      }
+    }
 
     displayCartItemCount();
     displayCartItemTotal();
