@@ -87,10 +87,15 @@ const setupCartFunctionality = () => {
     const id = element.dataset.id;
     const parentId = parent.dataset.id;
     // remove
-    removeItem(id);
-    parent.parentElement.remove();
+    if (element.classList.contains("cart-item-remove")) {
+      removeItem(id);
+      parent.parentElement.remove();
+    }
     // increase
-
+    if (parent.classList.contains("cart-item-increase")) {
+      const newAmount = increaseAmount(parentId);
+      parent.nextElementSibling.textContent = newAmount;
+    }
     // decrease
 
     displayCartItemCount();
