@@ -102,6 +102,7 @@ const setupCartFunctionality = () => {
     if (parent.classList.contains("cart-item-decrease")) {
       const newAmount = editAmount(parentId, "decrease");
       if (newAmount === 0) {
+        removeItem(parentId);
         parent.parentElement.parentElement.remove();
       } else {
         parent.previousElementSibling.textContent = newAmount;
