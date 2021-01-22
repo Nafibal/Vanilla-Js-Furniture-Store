@@ -2,7 +2,8 @@
 import "../toggleSidebar.js";
 import "../cart/toggleCart.js";
 
-import { getElement, singleProductUrl } from "../utils.js";
+import { getElement, singleProductUrl, formatPrice } from "../utils.js";
+import { addToCart } from "../cart/setupCart.js";
 
 // selections
 // const loading = getElement(".page-loading");
@@ -30,12 +31,14 @@ window.addEventListener("DOMContentLoaded", async function () {
         id,
         fields: { company, colors, name, price, image, description },
       } = product;
+      productID = id;
       // Display to the DOM
+      document.title = `${name.toUpperCase()} | Nyaman Inc.`;
       pageTitleDOM.textContent = `Product / ${name}`;
       imgDOM.src = image[0].thumbnails.large.url;
       titleDOM.textContent = name;
       companyDOM.textContent = company;
-      priceDOM.textContent = `$${price / 100}`;
+      priceDOM.textContent = `$${formatPrice(price)}`;
       colorsDOM.innerHTML = colors
         .map((item) => {
           return `<span class="product-color" style="background:${item};"></span>`;
@@ -52,4 +55,8 @@ window.addEventListener("DOMContentLoaded", async function () {
   } catch (error) {
     console.log(error);
   }
+});
+
+cartBtn.addEventListener("click", function () {
+  addToCart(productID);
 });
