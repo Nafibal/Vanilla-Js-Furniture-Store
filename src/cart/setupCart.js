@@ -30,8 +30,27 @@ export const addToCart = (id) => {
   } else {
     // update values
   }
+  // add one to the item count
+  addCartItemCount();
+  // display cart total
+  displayCartItemTotal();
+  // set cart in local storage
 
   openCart();
+};
+
+const addCartItemCount = () => {
+  const amount = cart.reduce((total, item) => {
+    return (total += item.amount);
+  }, 0);
+  cartItemCountDOM.textContent = amount;
+};
+
+const displayCartItemTotal = () => {
+  const cartTotal = cart.reduce((total, item) => {
+    return (total += item.price * item.amount);
+  }, 0);
+  cartTotalDOM.textContent = `${formatPrice(cartTotal)}`;
 };
 
 const init = () => {
